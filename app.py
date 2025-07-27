@@ -177,3 +177,31 @@ def is_anagram(s1: str, s2: str) -> bool:
     # return count1 == count2
 
 # print(f'{is_anagram("hello", "olleh")}')
+
+def majority_element(nums: list[int]) -> int:
+    # Question
+    # majority_element([3,3,4,2,3,3,5]) → 3
+
+    # your code here
+    max_count = 0
+    most_frequent_num = None
+    unique_nums = set(nums)
+    
+    for unique_num in unique_nums:
+        count = 0
+        for num in nums:
+            if num == unique_num: count+=1
+        
+        if max_count < count: 
+            max_count = count
+            most_frequent_num = unique_num
+
+    return most_frequent_num
+
+    # BEST ANSWER
+    # return Counter(nums).most_common(1)[0][0]
+    # most_common(1)[0] → (3, 3)
+    # most_common(1)[0][0] → 3 ← element
+    # most_common(1)[0][1] → 3 ← frequency
+
+print(f'{majority_element([1, 2, 3, 3, 3, 2, 1])}')
