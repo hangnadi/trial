@@ -143,3 +143,37 @@ def multiply_all(nums: list[int]) -> int:
     return result
 
 # print(f'{multiply_all([1, 2, 3, 4, 5])}')
+
+def is_anagram(s1: str, s2: str) -> bool:
+    # Question
+    # is_anagram("listen", "silent") → True
+    # is_anagram("hello", "world") → False
+
+    # your code here
+    # if len(s1) != len(s2): return False
+    # set1 = set(s1)
+    # set2 = set(s2)
+    # return len(set1) == len(set2)
+    # FAIL -> input aab vs abb
+
+    # Best Answer
+    return sorted(s1) == sorted(s2)
+    # OR
+    # count1 = {} -> defind empty dict
+    # count2 = {}
+
+    # for char in s1:
+    #     if char in count1:
+    #         count1[char] += 1
+    #     else:
+    #         count1[char] = 1
+
+    # for char in s2:
+    #     if char in count2:
+    #         count2[char] += 1
+    #     else:
+    #         count2[char] = 1
+
+    # return count1 == count2
+
+# print(f'{is_anagram("hello", "olleh")}')
