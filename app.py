@@ -307,3 +307,48 @@ def is_balanced(text: str) -> bool:
     return balance == 0
     
 # print(f'{is_balanced("())(")}')
+
+def longest_palindrome(text: str) -> list[str]:
+    # Question
+    # Key rules:
+    # Substring = characters must be contiguous (side by side).
+    # You cannot rearrange characters (no anagram allowed).
+    # You must return the longest palindromic sequence that exists exactly in the original string.
+ 
+    # longest_palindrome("babad")       → "bab" or "aba"
+    # longest_palindrome("cbbd")        → "bb"
+    # longest_palindrome("racecar")     → "racecar"
+    # Input: "babadd"
+    # Valid palindromes:
+    # "bab" ✅
+    # "aba" ✅
+    # "dd" ⛔️ -> not longest
+    # ⛔️ "dabad" is not allowed
+
+    max_length = len(text)
+    result  = []
+
+    # [0:4] -> max_length 4
+    # [0:3][1:4] -> max_length 3
+    # [0:2][1:3][2:4] -> max length 2
+    
+    while max_length >= 2:
+        start_index = 0
+        while start_index + max_length <= len(text):
+            last_index = start_index + max_length
+            text_to_check = text[start_index:last_index]
+
+            # Check Palindrome    
+            if text_to_check == text_to_check[::-1]:
+                result.append(text_to_check)
+
+            start_index+=1
+
+        # IF THE LONGEST CRITERIA MEET RETURN RESULT
+        if result:
+            return result
+        
+        max_length-=1
+    return result
+
+print(f'{longest_palindrome("ABAB")}')
