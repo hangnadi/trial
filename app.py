@@ -236,5 +236,25 @@ def count_uppercase(text: str) -> int:
 
     return count
 
-print(f'{count_uppercase("Hello World")}')
+# print(f'{count_uppercase("Hello World")}')
 
+def sum_digits(input: int) -> int:
+    # QUESTION
+    # sum_digits(1234) → 10
+    # sum_digits(505) → 10
+    result = 0
+    text = str(input)
+
+    for i in range(len(text)):
+        result = result + int(text[i])
+
+    return result
+
+    # BEST ANSWER
+    # return sum(int(d) for d in str(input))
+    # OR
+    # for digit in str(input):
+    #     result += int(digit)
+    # return result
+
+# print(f'{sum_digits(50105)}')
