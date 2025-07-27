@@ -19,14 +19,23 @@ def sum_positive(numbers: list[int]) -> int:
 
 def capitalize_words(text: str) -> str:
     # your code here
-    result = ""
-    for i in range(len(text)):
-        if text[i].islower(): 
-            result = f'{result + text[i].swapcase()}'
-        else :
-            result = f'{result + text[i]}'
+    # result = ""
+    # for i in range(len(text)):
+    #     if text[i].islower(): 
+    #         result = f'{result + text[i].swapcase()}'
+    #     else :
+    #         result = f'{result + text[i]}'
         
-    return result
+    # return result
+
+    # BEST ANSWER
+    # return text.title()
+    # OR
+    # words = text.split()
+    capitalized = []
+    for char in text:
+        capitalized.append(char[0].upper() + char[1:].lower())
+    return " ".join(capitalized)
 
 # print(f'{capitalize_words("Hello World!")}')
 
