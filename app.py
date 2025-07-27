@@ -228,6 +228,13 @@ def count_uppercase(text: str) -> int:
     # Question    
     # count_uppercase("Hello World") → 2
     # count_uppercase("python") → 0
-    return 0
+    
+    count = 0
+    for i in range(len(text)):
+        if text[i].isupper(): 
+            count+=1
 
+    return count
+
+print(f'{count_uppercase("Hello World")}')
 
