@@ -127,3 +127,19 @@ def reverse_string(text: str) -> str:
     # return result
 
 # print(f'Answer: {reverse_string("hello")}')
+
+def multiply_all(nums: list[int]) -> int:
+    # Question
+    # multiply_all([1, 2, 3, 4]) → 24
+
+    # your code here
+    if not nums:
+        return 0
+
+    result = nums[0]
+    for i in range(1, len(nums)):
+        result = result * nums[i]
+
+    return result
+
+# print(f'{multiply_all([1, 2, 3, 4, 5])}')
