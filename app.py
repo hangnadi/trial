@@ -269,3 +269,41 @@ def second_highest(nums: list[int]) -> int:
     return sorted(set(nums), reverse = True)[1]
 
 # print(f'{second_highest([5, 1, 3, 7, 7, 2,6])}')
+
+def is_balanced(text: str) -> bool:
+    # QUESTION
+    # is_balanced("()")         → True  
+    # is_balanced("(())")       → True  
+    # is_balanced("(()")        → False  
+    # is_balanced("())(")       → False  
+    # is_balanced("((())())")   → True  
+    # is_balanced("())(")       → False  (length 4: setiap buka +1, setiap tutup -1, end harus 0, -1 false)
+
+    # my answer
+    # result = False
+
+    # if len(text) % 2 == 0:
+    #     index = 0
+    #     last_index = len(text) - 1
+
+    #     while last_index >= 0:
+    #         result = (text[last_index] == "(" and text[index] == ")") or (text[last_index] == ")" and text[index] == "(")
+    #         last_index-=1
+    #         index+=1
+
+    #     return result
+    # else:
+    #     return result
+    
+    # CORRECT ANSWER 
+    balance = 0
+    for char in text:
+        if char == "(":
+            balance += 1
+        elif char == ")":
+            balance -= 1
+        if balance < 0:
+            return False  # closing before opening
+    return balance == 0
+    
+# print(f'{is_balanced("())(")}')
