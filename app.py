@@ -37,3 +37,46 @@ def remove_duplicates(nums: list[int]) -> list[int]:
     #         result.append(num)
     #         seen.add(num)
     # return result
+
+def longest_common_prefix(words: list[str]) -> str:
+    # question
+    # longest_common_prefix(["flower", "flow", "flight"]) → "fl"
+    # longest_common_prefix(["dog", "racecar", "car"]) → ""
+    # words = ["flow", "flower", "flee"]
+    
+    # your code here
+    prefix = words[0]
+    for i in range(1, len(words)):
+        while not words[i].startswith(prefix):
+            prefix = prefix[:-1]
+            if not prefix: 
+                return""
+    return prefix        
+
+    # best answer
+    # if not words:
+    #     return ""
+
+    # # Start with the first word as reference
+    # prefix = words[0]
+
+    # for word in words[1:]:
+    #     # Shrink prefix until it matches the start of the current word
+    #     while not word.startswith(prefix):
+    #         prefix = prefix[:-1]
+    #         if not prefix:
+    #             return ""
+    # return prefix
+
+    # FOOTNOTE
+    # | Syntax        | Meaning                                 | Example Result                 |
+    # | ------------- | --------------------------------------- | ------------------------------ |
+    # | `words[1:]`   | From index 1 to the end                 | `["flow", "flight"]`           |
+    # | `words[:2]`   | From start up to index 2 (not included) | `["flower", "flow"]`           |
+    # | `words[1:3]`  | From index 1 to 3 (not included)        | `["flow", "flight"]`           |
+    # | `words[-1]`   | Last item                               | `"flight"`                     |
+    # | `words[:-1]`  | Everything except last                  | `["flower", "flow"]`           |
+    # | `words[::-1]` | Full list in reverse                    | `["flight", "flow", "flower"]` |
+
+
+# print(f' answer: {longest_common_prefix(["reflow", "reflower", "refuse"])}')
