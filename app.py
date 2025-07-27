@@ -16,3 +16,24 @@ def sum_positive(numbers: list[int]) -> int:
     return result
     # best answer
     # return sum(n for n in numbers if n >= 0)
+
+def capitalize_words(text: str) -> str:
+    # your code here
+    return""
+
+def remove_duplicates(nums: list[int]) -> list[int]:
+    # your code here
+    results = []
+    for num in nums:
+        if num not in results: 
+            results.append(num)
+
+    return results
+    # best answer
+    # seen = set() -> use for setting the unique only
+    # result = []
+    # for num in nums:
+    #     if num not in seen:
+    #         result.append(num)
+    #         seen.add(num)
+    # return result
