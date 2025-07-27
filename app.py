@@ -258,3 +258,14 @@ def sum_digits(input: int) -> int:
     # return result
 
 # print(f'{sum_digits(50105)}')
+
+def second_highest(nums: list[int]) -> int:
+    # QUESTION
+    # second_highest([5, 1, 3, 7, 7, 2,6]) → 5
+
+    if len(set(nums)) < 2:
+        raise ValueError("Need at least two unique numbers")
+
+    return sorted(set(nums), reverse = True)[1]
+
+# print(f'{second_highest([5, 1, 3, 7, 7, 2,6])}')
