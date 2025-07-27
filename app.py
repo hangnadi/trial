@@ -19,7 +19,16 @@ def sum_positive(numbers: list[int]) -> int:
 
 def capitalize_words(text: str) -> str:
     # your code here
-    return""
+    result = ""
+    for i in range(len(text)):
+        if text[i].islower(): 
+            result = f'{result + text[i].swapcase()}'
+        else :
+            result = f'{result + text[i]}'
+        
+    return result
+
+# print(f'{capitalize_words("Hello World!")}')
 
 def remove_duplicates(nums: list[int]) -> list[int]:
     # your code here
@@ -204,4 +213,12 @@ def majority_element(nums: list[int]) -> int:
     # most_common(1)[0][0] → 3 ← element
     # most_common(1)[0][1] → 3 ← frequency
 
-print(f'{majority_element([1, 2, 3, 3, 3, 2, 1])}')
+# print(f'{majority_element([1, 2, 3, 3, 3, 2, 1])}')
+
+def count_uppercase(text: str) -> int:
+    # Question    
+    # count_uppercase("Hello World") → 2
+    # count_uppercase("python") → 0
+    return 0
+
+
