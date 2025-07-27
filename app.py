@@ -80,3 +80,26 @@ def longest_common_prefix(words: list[str]) -> str:
 
 
 # print(f' answer: {longest_common_prefix(["reflow", "reflower", "refuse"])}')
+
+def count_vowels(text: str) -> int:
+    # Question
+    # count_vowels("hello") → 2
+
+    # your code here
+    vowels = ["a","i","u","e","o"]
+    # result = []
+    # for vowel in vowels:
+    #     for item in text:
+    #         if vowel in item.lower():
+    #             result.append(item)
+    # return len(result)
+
+    # Best Answer
+    count = 0
+    for char in text.lower():
+        if char in vowels:
+            count+=1
+
+    return count
+
+# print(f'Answer: {count_vowels("hello world ooooooooooooo")}')
