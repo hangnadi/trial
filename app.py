@@ -103,3 +103,27 @@ def count_vowels(text: str) -> int:
     return count
 
 # print(f'Answer: {count_vowels("hello world ooooooooooooo")}')
+
+def reverse_string(text: str) -> str:
+    # Question
+    # reverse_string("hello") → "olleh"
+
+    # your code here
+    # result = ""
+    # length = len(text)
+    # while length >= 0:
+    #     length-=1
+    #     result = f"{result + text[length]}"
+
+    # Best answer
+    # Use Slicing
+    return text[::-1]
+    # OR
+    # result = ""
+    # index = len(text) - 1
+    # while index >= 0:
+    #     result += text[index]
+    #     index -= 1
+    # return result
+
+# print(f'Answer: {reverse_string("hello")}')
