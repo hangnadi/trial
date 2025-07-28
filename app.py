@@ -351,4 +351,33 @@ def longest_palindrome(text: str) -> list[str]:
         max_length-=1
     return result
 
-print(f'{longest_palindrome("ABAB")}')
+# print(f'{longest_palindrome("ABAB")}')
+
+def longest_unique_substring(text: str) -> str:
+    # longest_unique_substring("abcabcbb") → "abc"
+    # longest_unique_substring("pwwkew") → "wke"
+
+    max_length = len(text)
+    result = ""
+
+    while max_length >= 2:
+        start_index = 0
+        while start_index + max_length <= len(text):
+            last_index = start_index + max_length
+            text_to_search = text[start_index:last_index]
+            
+            # Finding if text_to_search have all unique char
+            unique = set(text_to_search)
+                    
+            # Return the longest first found
+            if len(unique) == len(text_to_search):
+                return text_to_search
+
+            start_index+=1
+        
+        max_length-=1
+
+    return result
+
+print(f'{longest_unique_substring("abcabcbb")}')
+            
