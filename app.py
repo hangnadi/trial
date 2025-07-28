@@ -379,5 +379,37 @@ def longest_unique_substring(text: str) -> str:
 
     return result
 
-print(f'{longest_unique_substring("abcabcbb")}')
+# print(f'{longest_unique_substring("abcabcbb")}')
             
+def character_frequency_sort(text: str) -> str:
+    # character_frequency_sort("tree") → "eert" or "eetr"
+    # character_frequency_sort("cccaaa") → "aaaccc" or "cccaaa"
+    
+    uniques = set(text)
+    result = ""
+    my_list = []
+
+    for item in uniques:
+        count = 0
+        for j in range(len(text)):
+            if text[j] == item:
+                count+=1
+        
+        temp = {}
+        temp["item"] = item
+        temp["count"] = count
+        my_list.append(temp)
+    
+    my_list = sorted(my_list, key=lambda item: item['count'], reverse=True)
+
+    for item in my_list:
+        for count in range(item['count']):
+            result = f'{result}{item['item']}'
+
+    # BEST ANSWER
+    # counter = Counter(text)
+    # sorted_items = sorted(counter.items(), key=lambda x: -x[1])
+    # return ''.join(char * freq for char, freq in sorted_items)
+
+    return result
+
