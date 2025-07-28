@@ -453,6 +453,22 @@ def can_form_palindrome(text: str) -> bool:
     #     if count % 2 == 1:
     #         odd_count += 1
 
-print(f'{can_form_palindrome("civic")}')
+# print(f'{can_form_palindrome("civic")}')
 
+def nested_dict_sum(d: dict) -> int:
+    # nested_dict_sum({"a": 5, "b": {"c": 3, "d": {"e": 2}}, "f": 4}) → 14
+    
+    # BEST ANSWER
+    total = 0
+    for value in d.values():
+        if isinstance(value, dict):
+            total += nested_dict_sum(value)
+        elif isinstance(value, int):
+            total += value
+    return total
+
+print(f'{nested_dict_sum({"a": 5, "b": {"c": 3, "d": {"e": 2}}, "f": 4})}')
+    
+# decode_run_length("a3b2c1") → "aaabbc"
+# decode_run_length("x5y2z1") → "xxxxxyyz"
 
