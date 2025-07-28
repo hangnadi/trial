@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 def even_or_odd(n: int) -> str:
     # your code here
     if n % 2 == 0: return "even"
@@ -411,5 +414,45 @@ def character_frequency_sort(text: str) -> str:
     # sorted_items = sorted(counter.items(), key=lambda x: -x[1])
     # return ''.join(char * freq for char, freq in sorted_items)
 
+    # So what does x: -x[1] mean?
+    #     x is each tuple from the list of items in the dictionary.
+    #     Example: x = ('a', 3) or x = ('b', 1)
+    #     x[0] is the character, x[1] is the count.
+    #     -x[1] makes the sort go from highest to lowest count because Python’s sorted() function sorts ascending by default.
+
+    # char * freq for char, freq in sorted_items
+    # This means:
+    # ➡️ for each (char, freq) in the list of tuples
+    # ➡️ repeat the char, freq times
+
     return result
+
+#  print(f'{character_frequency_sort("tree")}')
+
+def can_form_palindrome(text: str) -> bool:
+    # can_form_palindrome("civic") → True  
+    # can_form_palindrome("ivicc") → True  
+    # can_form_palindrome("civil") → False 
+
+    # RULE OF THUMB
+    # To form a palindrome from a set of characters:
+
+    # Even-length string: All characters must appear even times.
+    # Odd-length string: All characters can appear even times, except one, which can appear once (the center character).
+
+    # BEST ANSWER 
+    counter = Counter(text)
+    odd_count = sum(1 for count in counter.values() if count % 2 == 1)
+    return odd_count <= 1
+
+    # NOTE
+    # sum(1 for count in counter.values() if count % 2 == 1)
+    # is equivalen with
+    # odd_count = 0
+    # for count in counter.values():
+    #     if count % 2 == 1:
+    #         odd_count += 1
+
+print(f'{can_form_palindrome("civic")}')
+
 
