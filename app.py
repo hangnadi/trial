@@ -467,8 +467,58 @@ def nested_dict_sum(d: dict) -> int:
             total += value
     return total
 
-print(f'{nested_dict_sum({"a": 5, "b": {"c": 3, "d": {"e": 2}}, "f": 4})}')
-    
-# decode_run_length("a3b2c1") → "aaabbc"
-# decode_run_length("x5y2z1") → "xxxxxyyz"
+# print(f'{nested_dict_sum({"a": 5, "b": {"c": 3, "d": {"e": 2}}, "f": 4})}')
 
+def decode_run_length(text: str) -> str:
+    # decode_run_length("a3b2c1") → "aaabbc"
+    # decode_run_length("x5y2z1") → "xxxxxyyz"
+
+    char_to_print = ""
+    count_to_print = ""
+    result = ""
+
+    list_char = []
+    list_count = []
+
+    for index in range(len(text)):
+        if not text[index].isdigit():
+            char_to_print = f'{char_to_print}{text[index]}'
+            if count_to_print != "":
+                list_count.append(int(count_to_print))
+                count_to_print = ""
+        else:
+            count_to_print = f'{count_to_print}{text[index]}'
+            
+            if index == len(text) - 1:
+                list_count.append(int(count_to_print))
+                count_to_print = ""
+
+            if char_to_print != "":
+                list_char.append(char_to_print)
+                char_to_print = ""
+
+    for index in range(len(list_char)):
+        for count in range(list_count[index]):
+            result=f'{result}{list_char[index]}'
+            
+    return result
+
+    #BEST ANSWER
+    # result = ""
+    # i = 0
+
+    # while i < len(text):
+    #     char = text[i]
+    #     i += 1
+    #     count_str = ""
+
+    #     # Gather full number in case it's multi-digit
+    #     while i < len(text) and text[i].isdigit():
+    #         count_str += text[i]
+    #         i += 1
+
+    #     result += char * int(count_str)
+
+    # return result
+print(f'{decode_run_length("xa5y2z1")}')
+        
