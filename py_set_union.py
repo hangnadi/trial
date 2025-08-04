@@ -7,4 +7,3 @@ list_B = input().rstrip().split() # ids of those students.
 # Find union
 print(len(set(list_A).union(set(list_B))))
 
-
