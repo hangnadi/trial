@@ -1,5 +1,5 @@
 # Enter your code here. Read input from STDIN. Print output to STDOUTfrom itertools import permutations
-from itertools import *
+from itertools import combinations_with_replacement
 
 x = input().rstrip().split()
 
