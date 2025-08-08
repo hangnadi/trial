@@ -40,7 +40,7 @@ try:
             link = link_tag['href'] if link_tag else ''
             journal_data.append([name, link])
 
-    logging.info(f'Successfully fetched url: {url}')
+    logging.info(f'Successfully fetched url: {url} Total: {len(journal_data)}')
     
 except req.RequestException as e:
     logging.error(f'Failed to fetch url: {url} error: {e}')
